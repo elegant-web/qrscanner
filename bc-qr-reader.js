@@ -3818,7 +3818,7 @@ bcQrReader = function($timeout) {
     template: '<div><webcam on-stream="onStream(stream)" on-error="onError(err)" ng-if="active" selected-id="selectedId"></webcam><canvas id="qr-canvas"></canvas></div>',
     link: function(scope, elem, attrs) {
     	
-      console.log("reader sdfsdf"); 
+      console.log("reader qrcode"); 
       console.log(scope.selectedId);
       
       scope.channel = {};

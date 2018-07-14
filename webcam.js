@@ -79,7 +79,7 @@ angular.module('webcam', [])
       link: function postLink($scope, element) {
 
     	console.log("sdfsdf ebnd");
-    	console.log(scope.selectedId);
+    	console.log($scope.selectedId);
         var videoElem = null,
             videoStream = null,
             placeholder = null;
