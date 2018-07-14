@@ -145,8 +145,9 @@ angular.module('webcam', [])
         	  };
 
         	  navigator.mediaDevices.getUserMedia(constraints)
-              .then(onSuccess)
+              .then(onSuccess) 
               .catch(onFailure);
+        	  console.log("dfgdfg streem one");
         	}
         var handleError = function handleError(error) {
         	  console.log('Error: ', error);
