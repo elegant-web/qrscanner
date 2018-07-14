@@ -121,6 +121,7 @@ angular.module('webcam', [])
         	    option.value = deviceInfo.deviceId;
         	    console.log("hii");
         	    console.log(deviceInfo.deviceId);
+        	    console.log(deviceInfo);
         	    if (deviceInfo.kind === 'videoinput') {
         	      option.text = deviceInfo.label || 'camera ';
         	      
