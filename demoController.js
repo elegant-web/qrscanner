@@ -15,9 +15,9 @@ function DemoCtrl($scope,$rootScope) {
   
   
   
-  $scope.$on('event:gotDevices', function(newVal) {
+  $scope.$on('event:gotDevices', function(events, args) {
 	  console.log("newVal");
-	  console.log(newVal);
+	  console.log(args);
   });
   
   
