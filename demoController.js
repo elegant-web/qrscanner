@@ -14,7 +14,7 @@ function DemoCtrl($scope,$rootScope) {
     $scope.cameraRequested = false;
   }
   
-  $scope.changeCam = functin(data){
+  $scope.changeCam = function(data){
 	  $scope.deviseid = data;
   } 
   
