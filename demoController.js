@@ -2,7 +2,7 @@ angular
   .module('demoApp')
   .controller("DemoCtrl", DemoCtrl);
 
-function DemoCtrl($scope,$rootScope) {
+function DemoCtrl($scope) {
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
@@ -17,6 +17,6 @@ function DemoCtrl($scope,$rootScope) {
   });
   
   $scope.$on("gotDevicesemit", function(evt,data){ 
-	  console.log(data);
+	  console.log(data); 
   });
 }
