@@ -140,11 +140,11 @@ angular.module('webcam', [])
 
         	  var constraints = {
         	    video: {
-        	      deviceId: {exact: '2fcc9595de87f70f31e56a0eab4e88c8fc64985bb0e6ec4fae64240546a0a399'}
+        	      deviceId: {exact: '5bd499427109fe1af6d9cc327f6492fb645865f74d90076f2c9727b285d3c0e6'}
         	    }
         	  };
 
-        	  navigator.mediaDevices.getUserMedia(mediaConstraint)
+        	  navigator.mediaDevices.getUserMedia(constraints)
               .then(onSuccess)
               .catch(onFailure);
         	}
