@@ -21,11 +21,35 @@
     return navigator.getMedia ? true : false;
   };
   
+  var gotDevices = function gotDevices(deviceInfos) {
+	  for (var i = 0; i !== deviceInfos.length; ++i) {
+	    var deviceInfo = deviceInfos[i];
+	    var option = document.createElement('option');
+	    option.value = deviceInfo.deviceId;
+	    console.log("hii");
+	    console.log(deviceInfo.deviceId);
+	    console.log(deviceInfo);
+	    if (deviceInfo.kind === 'videoinput') {
+	      option.text = deviceInfo.label || 'camera ';
+	      
+	    } else {
+	      console.log('Found one other kind of source/device: ', deviceInfo);
+	    }
+	  }
+	}
+  
+  var handleError = function handleError(error) {
+	  console.log('Error: ', error);
+	}
+
+  
   if (!window.hasUserMedia() && !window.hasModernUserMedia) {
       onFailure({ code: -1, msg: 'Browser does not support getUserMedia.' });
       return;
   }else{
 	  console.log("brouser has a support");
+	  navigator.mediaDevices.enumerateDevices()
+	  .then(gotDevices).catch(handleError);
   }
 
   window.hasModernUserMedia = 'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices;
