@@ -27,23 +27,28 @@
 	  devises = [];
 	  for (var i = 0; i !== deviceInfos.length; ++i) {
 	    var deviceInfo = deviceInfos[i];
-	    console.log(deviceInfo);
 	    if (deviceInfo.kind === 'videoinput') {
 	      devises.push({
-	    	  'label' : deviceInfo.label || 'camera ',
+	    	  'label' : deviceInfo.label || 'camera '+devises.length,
 	    	  'id': deviceInfo.deviceId
 	      })
 	    } else {
 	      console.log('Found one other kind of source/device: ', deviceInfo);
 	    }
 	  }
-	  console.log("available devises"); 
-	  console.log(devises);
+	  return devises
+	  
 	}
   
   var handleError = function handleError(error) {
 	  console.log('Error: ', error);
 	}
+  
+  window.gotDevices = function gotDevicesCam() {
+	  	console.log("check devised");
+	  	console.log(gotDevices);
+	    return gotDevices;
+  };
 
   
   if (!window.hasUserMedia() && !window.hasModernUserMedia) {
