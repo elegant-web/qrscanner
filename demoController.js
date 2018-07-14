@@ -14,10 +14,10 @@ function DemoCtrl($scope,$rootScope) {
   }
   
   
-  $scope.$watch('gotDevices',function(newval) {
+  $rootScope.$watch('gotDevices',function(newval) {
 	  if(newval){
 		  console.log(newval);
-	  }
+	  } 
   });
   
   
