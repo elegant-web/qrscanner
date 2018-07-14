@@ -59,7 +59,7 @@
   window.hasModernUserMedia = 'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices;
 })();
 
-angular.module('webcam', ["$rootScope"])
+angular.module('webcam', [])
   .directive('webcam', function () {
     return {
       template: '<div class="webcam" ng-transclude></div>',
@@ -82,8 +82,8 @@ angular.module('webcam', ["$rootScope"])
         if (window.hasUserMedia() && window.hasModernUserMedia) {
         	console.log('sdfsdf');
         	console.log(window.gotDevices);
-        	$rootScope.$broadcast('gotDevices', window.gotDevices); 
-        	$rootScope.$broadcast('gotDevicesemit', window.gotDevices);
+        	$scope.$broadcast('gotDevices', window.gotDevices); 
+        	$scope.$broadcast('gotDevicesemit', window.gotDevices);
         }
 
         $scope.config = $scope.config || {};
