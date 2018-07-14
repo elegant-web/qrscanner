@@ -4,7 +4,7 @@ angular
 
 function DemoCtrl($scope,$rootScope) {
 	$scope.camdevises = [];
-	scope.deviseid = false;
+	$scope.deviseid = false;
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
