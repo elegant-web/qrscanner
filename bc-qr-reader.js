@@ -3812,14 +3812,12 @@ bcQrReader = function($timeout) {
       onResult: '=',
       onError: '=',
       active: '=',
-      cameraStatus: '=',
-       selectedId: '='
+      cameraStatus: '='
     },
-    template: '<div><webcam on-stream="onStream(stream)" on-error="onError(err)" ng-if="active" channel="channel" selected-id="selectedId"></webcam><canvas id="qr-canvas"></canvas></div>',
+    template: '<div><webcam on-stream="onStream(stream)" on-error="onError(err)" ng-if="active" channel="channel" ></webcam><canvas id="qr-canvas"></canvas></div>',
     link: function(scope, elem, attrs) {
     	
-      console.log("sdfsdf"); 
-      console.log(scope.selectedId);
+     
       
       scope.channel = {};
       if (!scope.onError) {

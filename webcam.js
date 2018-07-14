@@ -73,13 +73,13 @@ angular.module('webcam', [])
         onStream: '&',
         onStreaming: '&',
         placeholder: '=',
-        config: '=channel',
-        selectedId : '='
+        config: '=channel'
       },
       link: function postLink($scope, element) {
+    	  
+    	  scope.deviseNewId = 'false';
 
-    	console.log("sdfsdf ebnd");
-    	console.log($scope.selectedId);
+    	 
         var videoElem = null,
             videoStream = null,
             placeholder = null;
@@ -183,7 +183,10 @@ angular.module('webcam', [])
             onFailure({ code: -1, msg: 'Browser does not support getUserMedia.' });
             return;
           }
-
+          
+          console.log("scope.deviseNewId");
+          console.log($scope.deviseNewId);
+          
           var mediaConstraint = { video: true, audio: false };
 
           if (window.hasModernUserMedia) {
@@ -226,6 +229,12 @@ angular.module('webcam', [])
         $scope.$on('$destroy', onDestroy);
         $scope.$on('START_WEBCAM', startWebcam);
         $scope.$on('STOP_WEBCAM', stopWebcam);
+        $scope.$on('event:deviseId', function(events, args){
+        	if(args && args != 'false'){
+        		$scope.deviseNewId = args;
+        		startWebcam();
+        	}
+        });
 
         startWebcam();
 

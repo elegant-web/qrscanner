@@ -5,6 +5,7 @@ angular
 function DemoCtrl($scope) {
 	$scope.devises = [];
 	$scope.deviseNewId = 'false';
+	scope.$broadcast("event:deviseId",'false')
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
@@ -16,7 +17,13 @@ function DemoCtrl($scope) {
   
   $scope.selectDevise = function(ds) {
       $scope.deviseNewId = ds;
+      $scope.$broadcast("event:deviseId",ds);
+      /*scope.$broadcast("START_WEBCAM",'')*/
+      
+      
   }
+  
+  
   
   
   
