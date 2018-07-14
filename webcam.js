@@ -29,7 +29,7 @@
 	    var deviceInfo = deviceInfos[i];
 	    if (deviceInfo.kind === 'videoinput') {
 	      devises.push({
-	    	  'label' : deviceInfo.label || 'camera ';,
+	    	  'label' : deviceInfo.label || 'camera ',
 	    	  'id': deviceInfo.deviceId
 	      })
 	    } else {
