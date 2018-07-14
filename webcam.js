@@ -74,7 +74,7 @@ angular.module('webcam', [])
         placeholder: '=',
         config: '=channel'
       },
-      link: function postLink($scope, element,$rootScope) {
+      link: function postLink($scope, element) {
         var videoElem = null,
             videoStream = null,
             placeholder = null;
@@ -82,7 +82,7 @@ angular.module('webcam', [])
         if (window.hasUserMedia() && window.hasModernUserMedia) {
         	console.log('sdfsdf');
         	console.log(window.gotDevices);
-        	$rootScope.$broadcast('event:gotDevices', window.gotDevices);
+        	$scope.$broadcast('event:gotDevices', window.gotDevices);
         }
 
         $scope.config = $scope.config || {};
