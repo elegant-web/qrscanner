@@ -3816,7 +3816,7 @@ bcQrReader = function($timeout) {
     },
     template: '<div><webcam on-stream="onStream(stream)" on-error="onError(err)" ng-if="active" channel="channel"></webcam><canvas id="qr-canvas"></canvas></div>',
     link: function(scope, elem, attrs) {
-      scope.channel = {};
+      scope.channel = { audio: true, video: { facingMode: { exact: "environment" } } };
       if (!scope.onError) {
         scope.onError = function(error) {
           return console.log(error);
