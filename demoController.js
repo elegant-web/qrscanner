@@ -5,7 +5,7 @@ angular
 function DemoCtrl($scope) {
 	$scope.devises = [];
 	$scope.deviseNewId = 'false';
-	scope.$broadcast("event:deviseId",'false')
+	$scope.$broadcast("event:deviseId",'false')
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
