@@ -11,4 +11,14 @@ function DemoCtrl($scope) {
     $scope.url = url;
     $scope.cameraRequested = false;
   }
+  
+  $scope.$on("gotDevices", function(evt,data){ 
+	  console.log("gotDevices");
+	  console.log(data);
+  });
+  
+  $scope.$on("gotDevicesemit", function(evt,data){ 
+	  console.log("gotDevicesemit");
+	  console.log(data);
+  });
 }
