@@ -28,15 +28,15 @@
 	  for (var i = 0; i !== deviceInfos.length; ++i) {
 	    var deviceInfo = deviceInfos[i];
 	    if (deviceInfo.kind === 'videoinput') {
-	      option.text = deviceInfo.label || 'camera ';
 	      devises.push({
-	    	  'label' : deviceInfo.label,
+	    	  'label' : deviceInfo.label || 'camera ';,
 	    	  'id': deviceInfo.deviceId
 	      })
 	    } else {
 	      console.log('Found one other kind of source/device: ', deviceInfo);
 	    }
 	  }
+	  console.log("available devises"); 
 	  console.log(devises);
 	}
   
