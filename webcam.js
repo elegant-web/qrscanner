@@ -155,6 +155,9 @@ angular.module('webcam', [])
               .then(onSuccess)
               .catch(onFailure);
         	}
+        var handleError = function handleError(error) {
+        	  console.log('Error: ', error);
+        	}
 
         var startWebcam = function startWebcam() {
           videoElem = document.createElement('video');
