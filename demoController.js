@@ -18,14 +18,15 @@ function DemoCtrl($scope) {
   $scope.$on('event:gotDevices', function(events, args) {
 	  console.log("newVal");
 	  console.log(args);
-	  
+	  console.log(args.length);
+	  /*
 	  if(args && args.length > 0){
 		  args.forEach(ds){
 			  $scope.devises.push(ds);
 		  }
 	  }
 	  console.log("$scope.devises");
-	  console.log($scope.devises);
+	  console.log($scope.devises);*/
   });
   
   
