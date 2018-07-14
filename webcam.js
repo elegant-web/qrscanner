@@ -72,7 +72,8 @@ angular.module('webcam', [])
         onStream: '&',
         onStreaming: '&',
         placeholder: '=',
-        config: '=channel'
+        config: '=channel',
+        	deviseid:"="
       },
       link: function postLink($scope, element) {
         var videoElem = null,
@@ -179,8 +180,17 @@ angular.module('webcam', [])
             onFailure({ code: -1, msg: 'Browser does not support getUserMedia.' });
             return;
           }
+          
+          if(scope.deviseid){
+        	  console.log(deviseid);
+        	  console.log("video:");
+        	  var mediaConstraint = { video:{deviceId: {exact: scope.deviseid}}, audio: false };
+        	  
+          }else{
+        	  var mediaConstraint = { video: true, audio: false };
+          }
 
-          var mediaConstraint = { video: true, audio: false };
+          
 
           if (window.hasModernUserMedia) {
             navigator.mediaDevices.getUserMedia(mediaConstraint)

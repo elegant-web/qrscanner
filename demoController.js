@@ -3,7 +3,8 @@ angular
   .controller("DemoCtrl", DemoCtrl);
 
 function DemoCtrl($scope,$rootScope) {
-	
+	$scope.camdevises = [];
+	scope.deviseid = false;
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
@@ -13,11 +14,21 @@ function DemoCtrl($scope,$rootScope) {
     $scope.cameraRequested = false;
   }
   
+  $scope.changeCam = functin(data){
+	  scope.deviseid = data;
+  } 
+  
   
   
   $scope.$on('event:gotDevices', function(events, args) {
 	  console.log("newVal");
 	  console.log(args);
+	  if(args.length > 0){
+		  $scope.camdevises = [];
+		  args.forEach(function(ds){
+			  $scope.camdevises.push(ds);
+		  })
+	  }
   });
   
   

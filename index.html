@@ -14,8 +14,11 @@
     <h2>bc-qr-reader demo</h2>
     <button ng-click="start()" ng-hide="cameraRequested || url">Activate scanner new</button>
     <p ng-show="cameraRequested">Your browser should ask for permission to use the camera.</p>
+    
+    <div ng-repeat="x in camdevises"> <div>
+    <div ng-click="changeCam(x.id)"> x.label </div>
     <div>
-      <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" width="200px" height="200px"></bc-qr-reader>
+      <bc-qr-reader deviseid="deviseid" active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" width="200px" height="200px"></bc-qr-reader>
     </div>
     <p ng-show="url">QR code detected!</p>
     <p><b>{{ url }}</b></p>
