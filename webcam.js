@@ -138,7 +138,8 @@ angular.module('webcam', [])
             return;
           }
 
-          var mediaConstraint = { video: true, audio: false };
+          var mediaConstraint = {video: { facingMode: { exact: "user" } }, audio: false };
+          console.log(mediaConstraint); 
 
           if (window.hasModernUserMedia) {
             navigator.mediaDevices.getUserMedia(mediaConstraint)
