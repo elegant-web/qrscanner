@@ -36,6 +36,7 @@
 	      console.log('Found one other kind of source/device: ', deviceInfo);
 	    }
 	  } 
+	  console.log(devises);
 	  window.gotDevices = devises;
 	  
 	}
@@ -82,8 +83,7 @@ angular.module('webcam', [])
         if (window.hasUserMedia() && window.hasModernUserMedia) {
         	console.log('sdfsdf');
         	console.log(window.gotDevices);
-        	var devises = window.gotDevices
-        	$scope.$emit('event:gotDevices', devises);
+        	$scope.$emit('event:gotDevices', window.gotDevices);
         }
 
         $scope.config = $scope.config || {};
