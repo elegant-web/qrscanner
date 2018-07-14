@@ -139,11 +139,8 @@ angular.module('webcam', [])
         	  }
 
         	  var constraints = {
-        	    audio: {
-        	      deviceId: {exact: audioSelect.value}
-        	    },
         	    video: {
-        	      deviceId: {exact: videoSelect.value}
+        	      deviceId: {exact: '2fcc9595de87f70f31e56a0eab4e88c8fc64985bb0e6ec4fae64240546a0a399'}
         	    }
         	  };
 
