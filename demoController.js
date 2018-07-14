@@ -13,6 +13,10 @@ function DemoCtrl($scope) {
     $scope.cameraRequested = false;
   }
   
+  $scope.selectDevise = function(ds) {
+      console.log(ds);
+  }
+  
   
   
   $scope.$on('event:gotDevices', function(events, args) {
