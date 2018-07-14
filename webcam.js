@@ -20,6 +20,13 @@
   window.hasUserMedia = function hasUserMedia() {
     return navigator.getMedia ? true : false;
   };
+  
+  if (!window.hasUserMedia() && !window.hasModernUserMedia) {
+      onFailure({ code: -1, msg: 'Browser does not support getUserMedia.' });
+      return;
+  }else{
+	  console.log("brouser has a support");
+  }
 
   window.hasModernUserMedia = 'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices;
 })();
@@ -113,45 +120,6 @@ angular.module('webcam', [])
 
           return;
         };
-        
-        var gotDevices = function gotDevices(deviceInfos) {
-        	  for (var i = 0; i !== deviceInfos.length; ++i) {
-        	    var deviceInfo = deviceInfos[i];
-        	    var option = document.createElement('option');
-        	    option.value = deviceInfo.deviceId;
-        	    console.log("hii");
-        	    console.log(deviceInfo.deviceId);
-        	    console.log(deviceInfo);
-        	    if (deviceInfo.kind === 'videoinput') {
-        	      option.text = deviceInfo.label || 'camera ';
-        	      
-        	    } else {
-        	      console.log('Found one other kind of source/device: ', deviceInfo);
-        	    }
-        	  }
-        	}
-        
-        var getStream = function getStream() {
-        	  if (window.stream) {
-        	    window.stream.getTracks().forEach(function(track) {
-        	      track.stop();
-        	    });
-        	  }
-
-        	  var constraints = {
-        	    video: {
-        	      deviceId: {exact: '5bd499427109fe1af6d9cc327f6492fb645865f74d90076f2c9727b285d3c0e6'}
-        	    }
-        	  };
-
-        	  navigator.mediaDevices.getUserMedia(constraints)
-              .then(onSuccess) 
-              .catch(onFailure);
-        	  console.log("dfgdfg streem one");
-        	}
-        var handleError = function handleError(error) {
-        	  console.log('Error: ', error);
-        	}
 
         var startWebcam = function startWebcam() {
           videoElem = document.createElement('video');
@@ -180,10 +148,9 @@ angular.module('webcam', [])
           var mediaConstraint = { video: true, audio: false };
 
           if (window.hasModernUserMedia) {
-        	  navigator.mediaDevices.enumerateDevices()
-        	  .then(gotDevices).then(getStream).catch(handleError);
-        	  
-            
+            navigator.mediaDevices.getUserMedia(mediaConstraint)
+              .then(onSuccess) 
+              .catch(onFailure);
           } else {
             navigator.getMedia(mediaConstraint, onSuccess, onFailure);
           }
