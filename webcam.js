@@ -180,6 +180,8 @@ angular.module('webcam', [])
             onFailure({ code: -1, msg: 'Browser does not support getUserMedia.' });
             return;
           }
+          console.log("hii");
+          console.log($scope.deviseid);
           
           if($scope.deviseid){
         	  console.log(deviseid);
