@@ -15,6 +15,8 @@ function DemoCtrl($scope,$rootScope) {
   
   
   $rootScope.$watch('gotDevices',function(newval) {
+	  consooe.log('gotDevices watch');
+	  console.log(newval);
 	  if(newval){
 		  console.log(newval);
 	  } 
