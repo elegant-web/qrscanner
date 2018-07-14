@@ -27,6 +27,7 @@
 	  devises = [];
 	  for (var i = 0; i !== deviceInfos.length; ++i) {
 	    var deviceInfo = deviceInfos[i];
+	    console.log(deviceInfo);
 	    if (deviceInfo.kind === 'videoinput') {
 	      devises.push({
 	    	  'label' : deviceInfo.label || 'camera ',
