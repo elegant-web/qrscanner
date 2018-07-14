@@ -77,7 +77,7 @@ angular.module('webcam', [])
       },
       link: function postLink($scope, element) {
     	  
-    	  scope.deviseNewId = 'false';
+    	  $scope.deviseNewId = 'false';
 
     	 
         var videoElem = null,
