@@ -4,6 +4,7 @@ angular
 
 function DemoCtrl($scope) {
 	$scope.devises = [];
+	$scope.deviseNewId = 'false';
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
@@ -14,7 +15,7 @@ function DemoCtrl($scope) {
   }
   
   $scope.selectDevise = function(ds) {
-      console.log(ds);
+      $scope.deviseNewId = ds;
   }
   
   
@@ -29,16 +30,7 @@ function DemoCtrl($scope) {
 			  $scope.devises.push(ds);
 		  })
 	  }
-	  console.log("$scope.devises");
-	  console.log($scope.devises);
-	  /*
-	  if(args && args.length > 0){
-		  args.forEach(ds){
-			  $scope.devises.push(ds);
-		  }
-	  }
-	  console.log("$scope.devises");
-	  console.log($scope.devises);*/
+	 
   });
   
   
