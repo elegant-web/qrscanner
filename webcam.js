@@ -179,8 +179,9 @@ angular.module('webcam', [])
             onFailure({ code: -1, msg: 'Browser does not support getUserMedia.' });
             return;
           }
-          
+
           var mediaConstraint = { video: true, audio: false };
+
           if (window.hasModernUserMedia) {
             navigator.mediaDevices.getUserMedia(mediaConstraint)
               .then(onSuccess) 
