@@ -181,10 +181,10 @@ angular.module('webcam', [])
             return;
           }
           
-          if(scope.deviseid){
+          if($scope.deviseid){
         	  console.log(deviseid);
         	  console.log("video:");
-        	  var mediaConstraint = { video:{deviceId: {exact: scope.deviseid}}, audio: false };
+        	  var mediaConstraint = { video:{deviceId: {exact: $scope.deviseid}}, audio: false };
         	  
           }else{
         	  var mediaConstraint = { video: true, audio: false };
