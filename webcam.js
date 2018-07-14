@@ -72,8 +72,7 @@ angular.module('webcam', [])
         onStream: '&',
         onStreaming: '&',
         placeholder: '=',
-        config: '=channel',
-        	deviseid:"="
+        config: '=channel'
       },
       link: function postLink($scope, element) {
         var videoElem = null,
