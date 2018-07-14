@@ -113,6 +113,48 @@ angular.module('webcam', [])
 
           return;
         };
+        
+        var gotDevices = function gotDevices(deviceInfos) {
+        	  for (var i = 0; i !== deviceInfos.length; ++i) {
+        	    var deviceInfo = deviceInfos[i];
+        	    var option = document.createElement('option');
+        	    option.value = deviceInfo.deviceId;
+        	    console.log("hii");
+        	    console.log(deviceInfo.deviceId);
+        	    if (deviceInfo.kind === 'audioinput') {
+        	      option.text = deviceInfo.label ||
+        	        'microphone ' + (audioSelect.length + 1);
+        	      audioSelect.appendChild(option);
+        	    } else if (deviceInfo.kind === 'videoinput') {
+        	      option.text = deviceInfo.label || 'camera ' +
+        	        (videoSelect.length + 1);
+        	      videoSelect.appendChild(option);
+        	    } else {
+        	      console.log('Found one other kind of source/device: ', deviceInfo);
+        	    }
+        	  }
+        	}
+        
+        var getStream = function getStream() {
+        	  if (window.stream) {
+        	    window.stream.getTracks().forEach(function(track) {
+        	      track.stop();
+        	    });
+        	  }
+
+        	  var constraints = {
+        	    audio: {
+        	      deviceId: {exact: audioSelect.value}
+        	    },
+        	    video: {
+        	      deviceId: {exact: videoSelect.value}
+        	    }
+        	  };
+
+        	  navigator.mediaDevices.getUserMedia(mediaConstraint)
+              .then(onSuccess)
+              .catch(onFailure);
+        	}
 
         var startWebcam = function startWebcam() {
           videoElem = document.createElement('video');
@@ -138,13 +180,13 @@ angular.module('webcam', [])
             return;
           }
 
-          var mediaConstraint = {video: { facingMode: { exact: "environment" } }, audio: false };
-          console.log(mediaConstraint); 
+          var mediaConstraint = { video: true, audio: false };
 
           if (window.hasModernUserMedia) {
-            navigator.mediaDevices.getUserMedia(mediaConstraint)
-              .then(onSuccess)
-              .catch(onFailure);
+        	  navigator.mediaDevices.enumerateDevices()
+        	  .then(gotDevices).then(getStream).catch(handleError);
+        	  
+            
           } else {
             navigator.getMedia(mediaConstraint, onSuccess, onFailure);
           }
