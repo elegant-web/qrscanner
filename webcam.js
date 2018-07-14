@@ -82,6 +82,11 @@ angular.module('webcam', [])
         var videoElem = null,
             videoStream = null,
             placeholder = null;
+        
+        if (window.hasUserMedia() && window.hasModernUserMedia) {
+        	console.log('sdfsdf');
+        	console.log(window.gotDevices);
+        }
 
         $scope.config = $scope.config || {};
 
