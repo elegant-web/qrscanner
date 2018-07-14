@@ -19,6 +19,14 @@ function DemoCtrl($scope) {
 	  console.log("newVal");
 	  console.log(args);
 	  console.log(args.length);
+	  
+	  if(args.length > 0){
+		  args.forEach(function(ds){
+			  $scope.devises.push(ds);
+		  })
+	  }
+	  console.log("$scope.devises");
+	  console.log($scope.devises);
 	  /*
 	  if(args && args.length > 0){
 		  args.forEach(ds){
