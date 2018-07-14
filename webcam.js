@@ -122,9 +122,8 @@ angular.module('webcam', [])
         	    console.log("hii");
         	    console.log(deviceInfo.deviceId);
         	    if (deviceInfo.kind === 'videoinput') {
-        	      option.text = deviceInfo.label || 'camera ' +
-        	        (videoSelect.length + 1);
-        	      videoSelect.appendChild(option);
+        	      option.text = deviceInfo.label || 'camera ';
+        	      
         	    } else {
         	      console.log('Found one other kind of source/device: ', deviceInfo);
         	    }
