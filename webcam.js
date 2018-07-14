@@ -82,7 +82,7 @@ angular.module('webcam', [])
         if (window.hasUserMedia() && window.hasModernUserMedia) {
         	console.log('sdfsdf');
         	console.log(window.gotDevices);
-        	devises = window.gotDevices
+        	var devises = window.gotDevices
         	$scope.$emit('event:gotDevices', devises);
         }
 
