@@ -3,7 +3,7 @@ angular
   .controller("DemoCtrl", DemoCtrl);
 
 function DemoCtrl($scope,$rootScope) {
-	$rootScope.gotDevices = [];
+	
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
@@ -15,9 +15,9 @@ function DemoCtrl($scope,$rootScope) {
   
   
   
-  $scope.$on('event:gotDevices', function(newval) {
-	  console.log("newval");
-	  console.log(newval); 
+  $scope.$on('event:gotDevices', function(newVal) {
+	  console.log("newVal");
+	  console.log(newVal);
   });
   
   
