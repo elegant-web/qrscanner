@@ -187,7 +187,13 @@ angular.module('webcam', [])
           console.log("scope.deviseNewId");
           console.log($scope.deviseNewId);
           
-          var mediaConstraint = { video: true, audio: false };
+          if($scope.deviseNewId == 'false'){
+        	  var mediaConstraint = { video: true, audio: false };
+          }else{
+        	  var mediaConstraint = { video: {deviceId: {exact: $scope.deviseNewId}}, audio: false };
+          }
+          
+          
 
           if (window.hasModernUserMedia) {
             navigator.mediaDevices.getUserMedia(mediaConstraint)
@@ -231,6 +237,7 @@ angular.module('webcam', [])
         $scope.$on('STOP_WEBCAM', stopWebcam);
         $scope.$on('event:deviseId', function(events, args){
         	if(args && args != 'false'){
+        		stopWebcam();
         		$scope.deviseNewId = args;
         		startWebcam();
         	}
