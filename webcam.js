@@ -73,9 +73,13 @@ angular.module('webcam', [])
         onStream: '&',
         onStreaming: '&',
         placeholder: '=',
-        config: '=channel'
+        config: '=channel',
+        selectedId : '='
       },
       link: function postLink($scope, element) {
+
+    	console.log("sdfsdf ebnd");
+    	console.log(scope.selectedId);
         var videoElem = null,
             videoStream = null,
             placeholder = null;
