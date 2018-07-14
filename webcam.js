@@ -35,8 +35,8 @@
 	    } else {
 	      console.log('Found one other kind of source/device: ', deviceInfo);
 	    }
-	  }
-	  return devises
+	  } 
+	  window.gotDevices = devises;
 	  
 	}
   
@@ -44,11 +44,7 @@
 	  console.log('Error: ', error);
 	}
   
-  window.gotDevices = function gotDevicesCam() {
-	  	console.log("check devised");
-	  	console.log(gotDevices);
-	    return gotDevices;
-  };
+  
 
   
   if (!window.hasUserMedia() && !window.hasModernUserMedia) {
