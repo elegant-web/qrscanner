@@ -2,7 +2,8 @@ angular
   .module('demoApp')
   .controller("DemoCtrl", DemoCtrl);
 
-function DemoCtrl($scope) {
+function DemoCtrl($scope,$rootScope) {
+	$rootScope.gotDevices = [];
   $scope.start = function() {
       $scope.cameraRequested = true;
   }
@@ -12,13 +13,14 @@ function DemoCtrl($scope) {
     $scope.cameraRequested = false;
   }
   
-  $scope.$on("gotDevices", function(evt,data){ 
-	  console.log("gotDevices");
-	  console.log(data);
+  
+  $scope.$watch('gotDevices',function(newval) {
+	  if(newval){
+		  console.log(newval);
+	  }
   });
   
-  $scope.$on("gotDevicesemit", function(evt,data){ 
-	  console.log("gotDevicesemit");
-	  console.log(data);
-  });
+  
+  
+  
 }
