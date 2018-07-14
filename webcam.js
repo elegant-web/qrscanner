@@ -60,7 +60,7 @@
 })();
 
 angular.module('webcam', ["$rootScope"])
-  .directive('webcam', function ($rootScope) {
+  .directive('webcam', function () {
     return {
       template: '<div class="webcam" ng-transclude></div>',
       restrict: 'E',
